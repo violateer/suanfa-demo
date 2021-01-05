@@ -7,7 +7,7 @@
 // const fabonacci = (n) =>
 //   n === 0 ? 0 : n === 1 ? 1 : fabonacci(n - 1) + fabonacci(n - 2);
 
-// 优化
+// 使用循环优化
 const fabonacci = (n) => {
   const arr = [0, 1];
   for (let i = 2; i <= n; i++) {
@@ -16,4 +16,4 @@ const fabonacci = (n) => {
   return arr[n];
 };
 
-console.log(fabonacci(100));
+console.log(fabonacci(46));
