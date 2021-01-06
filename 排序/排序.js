@@ -32,7 +32,7 @@ const merge1 = (a, b) => {
 };
 
 /**
- * @param {number[],number[]}
+ * @param {number [],number []}
  * @return {number []}
  * @description 实现方法二
  */
@@ -45,4 +45,28 @@ const merge2 = (a, b) =>
     ? [b[0]].concat(merge2(a, b.slice(1)))
     : [a[0]].concat(merge2(a.slice(1), b));
 
-console.log(merge2([1, 3], [2, 4]));
+/**
+ * @description 实现排序一个无序数组--实现方法一：耗内存，耗CPU
+ * @param {number []}
+ * @return {number []}
+ */
+const sort1 = (nums) => {
+  let k = nums.length;
+  if (k === 1) return nums;
+  let left = nums.slice(0, Math.floor(k / 2));
+  let right = nums.slice(Math.floor(k / 2));
+  return merge2(sort(left), sort(right));
+};
+
+/**
+ * @description 实现排序一个无序数组--实现方法二：节约内存->就地操作
+ * @param {number []}
+ * @return {number []}
+ */
+const sort2 = (nums) => {
+  let k = nums.length;
+  if (k === 1) return nums;
+  let left = nums.slice(0, Math.floor(k / 2));
+  let right = nums.slice(Math.floor(k / 2));
+  return merge2(sort(left), sort(right));
+};
